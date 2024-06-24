@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,4 +68,34 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("androidx.navigation:navigation-compose:2.7.3")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.2")
+
+    val daggerHilt = "2.47"
+    val coroutine = "1.7.1"
+
+    //dagger hilt
+    implementation("com.google.dagger:hilt-android:$daggerHilt")
+    kapt("com.google.dagger:hilt-android-compiler:$daggerHilt")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
+
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0-alpha02")
+
+    //paging 3
+    implementation ( "androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation ("androidx.paging:paging-compose:3.3.0-alpha02")
+
+
+    //retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    //moshi
+    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+    //coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
